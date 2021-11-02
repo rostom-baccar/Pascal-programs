@@ -1,4 +1,4 @@
-Ôªøprogram vigenene;
+program vigenene;
 uses wincrt;
 
 type matrice=array['A'..'Z','A'..'Z'] of char;
@@ -6,7 +6,7 @@ type tab=array[1..6] of char;
 
 var ch,ch1:string; m:matrice; cle:string; a,b,c:char; i:integer;
 
-//la matrice est initialis√©e √† l'alphabet d√©call√© de i lettres selon la colonne
+//la matrice est initialisÇe Ö l'alphabet dÇcallÇ de i lettres selon la colonne
 procedure remplissage_matrice(var m:matrice);
 var i,j:char;
 begin
@@ -17,7 +17,7 @@ begin
         end;
 end;
 
-//fonction v√©rifiant l'existence d'une lettre dans une chaine de caract√®res
+//fonction vÇrifiant l'existence d'une lettre dans une chaine de caractäres
 function existence(ch:string;c:char):boolean;
 var i:integer; t:boolean;
 begin
@@ -30,7 +30,7 @@ until (t=true) or (i=length(ch));
 existence:=t;
 end;
 
-//fonction de d√©cryptage retournant la chaine de caract√®res d√©crypt√©e
+//fonction de dÇcryptage retournant la chaine de caractäres dÇcryptÇe
 function decryptage(ch:string; m:matrice; cle:string):string;
 var mot:string; i:integer; 
 begin
@@ -43,13 +43,13 @@ end;
 
 begin
 ch1:='';
-//phrase √† d√©crypter
+//phrase Ö dÇcrypter
 ch:='RMUUWQPMQGXHWBGGKKKNITMUXWWTMGGXHEPH';
 
 remplissage_matrice(m);
 i:=0;
 
-//triple boucle for pour g√©n√©rer toutes les cl√©s possibles
+//triple boucle for pour gÇnÇrer toutes les clÇs possibles
 for a:='A' to 'Z' do begin
 	for b:='A' to 'Z' do begin
 		if a<>b then begin
@@ -58,7 +58,7 @@ for a:='A' to 'Z' do begin
 
 				cle:=a+b+c;
 				ch1:=decryptage(ch,m,cle);
-				if (ch1[12]='E') and (existence(ch1,'X')=false) and (existence(ch1,'W')=false) then begin //3 suppositions afin de r√©duire le champ de recherche
+				if (ch1[12]='E') and (existence(ch1,'X')=false) and (existence(ch1,'W')=false) then begin //3 suppositions afin de rÇduire le champ de recherche
 				i:=i+1;
                 writeln(ch1);
                 end;
